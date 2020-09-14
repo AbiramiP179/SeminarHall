@@ -1,4 +1,4 @@
-aimport React,{Component} from 'react';
+import React,{Component} from 'react';
 import Axios from 'axios';
 import './Login.css'
 const heading ={
