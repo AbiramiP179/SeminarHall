@@ -155,24 +155,6 @@ class Login extends Component{
   {
     return (
       
-
-      /*<div >
-     <div style={heading}>
-        <h3>Login page</h3>
-        <form style={heading}  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
-        <label style={llabel}>Name</label>
-        <input style={iinput} type="text" name="username" value={this.state.fields.Username} onChange={this.handleChange} />
-        <div style={errormessage} className="errorMsg">{this.state.errors.Username}</div>
-        <label style={llabel}>Email ID:</label>
-        <input style={iinput} type="text" name="emailid" value={this.state.fields.email} onChange={this.handleChange}  />
-        <div style={errormessage}className="errorMsg">{this.state.errors.email}</div>
-        <label style={llabel}>Password</label>
-        <input style={iinput} className="db fw6 lh-copy f6" type="password" name="password" value={this.state.fields.Password} onChange={this.handleChange} />
-        <div style={errormessage}className="errorMsg">{this.state.errors.Password}</div>
-        <button style={bbutton} type="submit">Login </button>
-        </form>
-    </div>
-   </div>*/
    <div class="bg a">
   <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 bnn">
 
