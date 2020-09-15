@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './BookingForm.css';
 import Axios from 'axios';
+import ReactDOM from 'react-dom';
 
 const hheading ={
     width: '300px',
@@ -60,17 +61,45 @@ class Bookingform extends Component {
       event.preventDefault();
      
       try {
-      var signupRes = await Axios.post("http://localhost:5000/book",{ 
+      var signupRes = await Axios.post("http://localhost:5000/send",{ 
        seminarhall:this.state.seminarhall,
       purposeofevent:this.state.purposeofevent,
-      numberofpersons:this.state.numberofpersons
+      numberofpersons:this.state.numberofpersons,
+      fromdate:this.fromdate,
+      todate:this.todate
+
     });
+
+
+
+
       window.alert("Successfully request sent");
       this.props.history.push("/bookings");
     } catch (err) {
       window.alert(err.response.data);
     } 
       }
+
+  // submituserBookingForm=async(event)=> {
+
+
+  //       Axios({
+  //           method: "POST", 
+  //           url:"http://localhost:3000/send", 
+  //           data: {
+  //       name: "harsh",
+  //       email: "m.harshidha@gmail.com",
+  //       messageHtml: "Hall Requested"
+  //           }
+  //       }).then((response)=>{
+  //           if (response.data.msg === 'success'){
+  //               alert("Email sent, awesome!"); 
+  //               this.resetForm()
+  //           }else if(response.data.msg === 'fail'){
+  //               alert("Oops, something went wrong. Try again")
+  //           }
+  //       })
+  //   }
   
    
   render()
