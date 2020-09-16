@@ -1,8 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import './homme.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function About(){
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
+import './About.css';
+
+function App(){
     const [books, setBooks] = useState(null);
 
       const apiURL = "http://localhost:5000/api";
@@ -18,34 +22,48 @@ function About(){
     <div className="App">
 
       <h1>These are the requests</h1>
-     
-
-   
-
-        <div>
+    
+     <div>
         <button className="fetch-button" onClick={fetchData}>
           Fetch Data
         </button>
       </div>
+    
+          <table class="table table-hover table-dark" variant="dark">
+       <thead>
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Seminar Hall</th>
+      <th scope="col"> Purpose of Event </th>
+         <th scope="col"> Number of persons </th>
 
-      <div className="books">
+      <th scope="col">Accept</th>
+      <th scope="col">Reject</th>
+    </tr>
+  </thead>
+
+        <tbody>
         {books &&
           books.map((book, index) => {
             
             return (
          
-                <div className="details">
-                  <p>👨: {book.seminarhall}</p>
-                  <p>📖: {book.purposeofevent} pages</p>
-                  <p>🏘️: {book.numberofpersons}</p>
-                
-                </div>
+                     <tr class="hov">
+                      <th scope="row">📖</th>
+                      <td>{book.seminarhall}</td>
+                      <td>{book.purposeofevent}</td>
+                      <td>{book.numberofpersons}</td>
+                       <td><Button variant="success">Accept</Button></td>
+                       <td><Button variant="primary">Reject</Button></td>
+                    </tr>
+              
           
             );
           })}
-      </div>
+         </tbody>
+      </table>
     </div>
   );
 }
 
-export default About;
+export default App;
