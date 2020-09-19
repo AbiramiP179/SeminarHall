@@ -16,18 +16,14 @@ function App(){
 
         setBooks(response.data) 
     }
-
+          fetchData();
 
       return (
     <div className="App">
 
       <h1>These are the requests</h1>
     
-     <div>
-        <button className="fetch-button" onClick={fetchData}>
-          Fetch Data
-        </button>
-      </div>
+     
     
           <table class="table table-hover table-dark" variant="dark">
        <thead>
