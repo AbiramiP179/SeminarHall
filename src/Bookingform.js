@@ -48,7 +48,8 @@ class Bookingform extends Component {
       todate:"",
       seminarhall:"",
       purposeofevent:"",
-      numberofpersons:" "
+      numberofpersons:"",
+      session:""
       }
 
      
@@ -65,8 +66,9 @@ class Bookingform extends Component {
        seminarhall:this.state.seminarhall,
       purposeofevent:this.state.purposeofevent,
       numberofpersons:this.state.numberofpersons,
-      fromdate:this.fromdate,
-      todate:this.todate
+      fromdate:this.state.fromdate,
+      todate:this.todate,
+      session:this.state.session
 
     });
 
@@ -74,7 +76,7 @@ class Bookingform extends Component {
 
 
       window.alert("Successfully request sent");
-      this.props.history.push("/bookings");
+      this.props.history.push("/checking");
     } catch (err) {
       window.alert(err.response.data);
     } 
@@ -112,8 +114,8 @@ class Bookingform extends Component {
           <h3>Requirements</h3>
           <form name="userbookingForm"  onSubmit= {this.submituserBookingForm} >
           <label style={lllabel}>From Date:</label>
-          <input style={iiinput} type="Date" name="FromDate" onChange={(e) =>this.setState({
-                              formdate: e.target.value
+          <input style={iiinput} type="Date" defaultValue="2020-09-28" name="FromDate" onChange={(e) =>this.setState({
+                              fromdate: e.target.value
                             })}  />
           
           <label style={lllabel}>ToDate:</label>

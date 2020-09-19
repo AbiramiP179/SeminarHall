@@ -8,7 +8,8 @@ import Bookingform from './Bookingform';
 import Login from './Loginn/Login';
 import About from './About';
 import Home from './Home';
-import signup from './signup'
+import signup from './signup';
+import Check from './Check';
 import 'tachyons';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   <Route path="/login" component={Login} />
   <Route path="/signup" component={signup} />
   <Route path="/bookings" component={Bookingform} />
+  <Route path="/checking" component={Check} />
 </Switch>
     
   </Router>
