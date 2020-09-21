@@ -76,7 +76,7 @@ class Bookingform extends Component {
 
 
       window.alert("Successfully request sent");
-      this.props.history.push("/checking");
+      this.props.history.push("/bookings");
     } catch (err) {
       window.alert(err.response.data);
     } 
