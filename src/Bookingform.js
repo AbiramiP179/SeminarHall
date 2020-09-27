@@ -40,16 +40,18 @@ const eerrormessage={
 }
 
 class Bookingform extends Component {
+    
    constructor() {
       super();
       this.state = {
- 
+    
       fromdate:"",
       todate:"",
       seminarhall:"",
       purposeofevent:"",
       numberofpersons:"",
-      session:""
+      session:"",
+      email:""
       }
 
      
@@ -60,7 +62,7 @@ class Bookingform extends Component {
 
   submituserBookingForm=async(event)=> {
       event.preventDefault();
-     
+     var x=localStorage.getItem("email");
       try {
       var signupRes = await Axios.post("http://localhost:5000/send",{ 
        seminarhall:this.state.seminarhall,
@@ -68,7 +70,8 @@ class Bookingform extends Component {
       numberofpersons:this.state.numberofpersons,
       fromdate:this.state.fromdate,
       todate:this.todate,
-      session:this.state.session
+      session:this.state.session,
+      email:x
 
     });
 

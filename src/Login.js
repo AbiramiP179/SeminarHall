@@ -38,6 +38,7 @@ const errormessage={
 }
 
 class Login extends Component{
+  //documentData;
    constructor() {
       super();
       this.state = {
@@ -64,6 +65,7 @@ class Login extends Component{
   // }
   submituserRegistrationForm=async(event)=> {
       event.preventDefault();
+      localStorage.setItem("email",this.state.email);
       // if (this.validateForm()) {
             // let fields = {};
             // fields["email-address"] = "";
@@ -84,6 +86,20 @@ class Login extends Component{
     routeChange(){
       this.props.history.push("/signup");
     }  
+
+//   componentDidMount() {
+//     this.documentData = JSON.parse(localStorage.getItem('document'));
+ 
+//     if (localStorage.getItem('document')) {
+//         this.setState({
+//             email: this.documentData.email
+//     })
+// } else {
+//     this.setState({
+//        email:''
+//     })
+// }
+// }
     // }
   //   validateForm() {
 
