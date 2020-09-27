@@ -65,7 +65,7 @@ class Login extends Component{
   // }
   submituserRegistrationForm=async(event)=> {
       event.preventDefault();
-      localStorage.setItem("email",this.state.email);
+
       // if (this.validateForm()) {
             // let fields = {};
             // fields["email-address"] = "";
@@ -77,6 +77,7 @@ class Login extends Component{
       password: this.state.password
     });
       window.alert("Successful Login");
+       localStorage.setItem("email",this.state.email);
       this.props.history.push("/bookings");
     } catch (err) {
       window.alert(err.response.data);
@@ -185,6 +186,7 @@ class Login extends Component{
         class="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100"  
         onChange={(e) =>this.setState({
                               email: e.target.value
+                             
                             })
                           } 
         type="email" 

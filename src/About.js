@@ -20,11 +20,10 @@ function App(){
           fetchData();
 
     function acceptrequest(id){
-      var x=localStorage.getItem("email");
+     
     try {
       var signupRes =  axios.post("http://localhost:5000/acceptid",{ 
       id:id,
-      email:x
 
         });
  //window.alert("Successfully accepted");
@@ -35,11 +34,10 @@ function App(){
       }
 
       function rejectrequest(id){
-         var x=localStorage.getItem("email");
+         
       try {
             var signupRes =  axios.post("http://localhost:5000/rejectid",{ 
             id:id,
-            email:x
           });
  //window.alert("Successfully accepted");
       fetchData();
