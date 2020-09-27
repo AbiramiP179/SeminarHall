@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './BookingForm.css';
 import Axios from 'axios';
+import ReactDOM from 'react-dom';
 
 const hheading ={
     width: '300px',
@@ -39,15 +40,18 @@ const eerrormessage={
 }
 
 class Bookingform extends Component {
+    
    constructor() {
       super();
       this.state = {
- 
+    
       fromdate:"",
       todate:"",
       seminarhall:"",
       purposeofevent:"",
-      numberofpersons:" "
+      numberofpersons:"",
+      session:"",
+      email:""
       }
 
      
@@ -58,19 +62,49 @@ class Bookingform extends Component {
 
   submituserBookingForm=async(event)=> {
       event.preventDefault();
-     
+     var x=localStorage.getItem("email");
       try {
-      var signupRes = await Axios.post("http://localhost:5000/book",{ 
+      var signupRes = await Axios.post("http://localhost:5000/send",{ 
        seminarhall:this.state.seminarhall,
       purposeofevent:this.state.purposeofevent,
-      numberofpersons:this.state.numberofpersons
+      numberofpersons:this.state.numberofpersons,
+      fromdate:this.state.fromdate,
+      todate:this.todate,
+      session:this.state.session,
+      email:x
+
     });
+
+
+
+
       window.alert("Successfully request sent");
       this.props.history.push("/bookings");
     } catch (err) {
       window.alert(err.response.data);
     } 
       }
+
+  // submituserBookingForm=async(event)=> {
+
+
+  //       Axios({
+  //           method: "POST", 
+  //           url:"http://localhost:3000/send", 
+  //           data: {
+  //       name: "harsh",
+  //       email: "m.harshidha@gmail.com",
+  //       messageHtml: "Hall Requested"
+  //           }
+  //       }).then((response)=>{
+  //           if (response.data.msg === 'success'){
+  //               alert("Email sent, awesome!"); 
+  //               this.resetForm()
+  //           }else if(response.data.msg === 'fail'){
+  //               alert("Oops, something went wrong. Try again")
+  //           }
+  //       })
+  //   }
   
    
   render()
@@ -83,8 +117,8 @@ class Bookingform extends Component {
           <h3>Requirements</h3>
           <form name="userbookingForm"  onSubmit= {this.submituserBookingForm} >
           <label style={lllabel}>From Date:</label>
-          <input style={iiinput} type="Date" name="FromDate" onChange={(e) =>this.setState({
-                              formdate: e.target.value
+          <input style={iiinput} type="Date" defaultValue="2020-09-28" name="FromDate" onChange={(e) =>this.setState({
+                              fromdate: e.target.value
                             })}  />
           
           <label style={lllabel}>ToDate:</label>

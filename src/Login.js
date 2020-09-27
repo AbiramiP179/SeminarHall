@@ -38,6 +38,7 @@ const errormessage={
 }
 
 class Login extends Component{
+  //documentData;
    constructor() {
       super();
       this.state = {
@@ -64,6 +65,7 @@ class Login extends Component{
   // }
   submituserRegistrationForm=async(event)=> {
       event.preventDefault();
+
       // if (this.validateForm()) {
             // let fields = {};
             // fields["email-address"] = "";
@@ -75,6 +77,7 @@ class Login extends Component{
       password: this.state.password
     });
       window.alert("Successful Login");
+       localStorage.setItem("email",this.state.email);
       this.props.history.push("/bookings");
     } catch (err) {
       window.alert(err.response.data);
@@ -84,6 +87,20 @@ class Login extends Component{
     routeChange(){
       this.props.history.push("/signup");
     }  
+
+//   componentDidMount() {
+//     this.documentData = JSON.parse(localStorage.getItem('document'));
+ 
+//     if (localStorage.getItem('document')) {
+//         this.setState({
+//             email: this.documentData.email
+//     })
+// } else {
+//     this.setState({
+//        email:''
+//     })
+// }
+// }
     // }
   //   validateForm() {
 
@@ -155,24 +172,6 @@ class Login extends Component{
   {
     return (
       
-
-      /*<div >
-     <div style={heading}>
-        <h3>Login page</h3>
-        <form style={heading}  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
-        <label style={llabel}>Name</label>
-        <input style={iinput} type="text" name="username" value={this.state.fields.Username} onChange={this.handleChange} />
-        <div style={errormessage} className="errorMsg">{this.state.errors.Username}</div>
-        <label style={llabel}>Email ID:</label>
-        <input style={iinput} type="text" name="emailid" value={this.state.fields.email} onChange={this.handleChange}  />
-        <div style={errormessage}className="errorMsg">{this.state.errors.email}</div>
-        <label style={llabel}>Password</label>
-        <input style={iinput} className="db fw6 lh-copy f6" type="password" name="password" value={this.state.fields.Password} onChange={this.handleChange} />
-        <div style={errormessage}className="errorMsg">{this.state.errors.Password}</div>
-        <button style={bbutton} type="submit">Login </button>
-        </form>
-    </div>
-   </div>*/
    <div class="bg a">
   <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10 bnn">
 
@@ -187,6 +186,7 @@ class Login extends Component{
         class="pa2 input-reset ba bg-transparent hover-bg-black hover-black w-100"  
         onChange={(e) =>this.setState({
                               email: e.target.value
+                             
                             })
                           } 
         type="email" 

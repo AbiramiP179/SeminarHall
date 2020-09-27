@@ -3,7 +3,7 @@ import Axios from 'axios';
 import './Login.css';
         
 
-class signup extends Component{
+class signup extends Component {
    constructor() {
       super();
       this.state = {
