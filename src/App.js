@@ -10,6 +10,8 @@ import About from './About';
 import Home from './Home';
 import signup from './signup';
 import Check from './Check';
+import Status from './status';
+
 import 'tachyons';
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
   <Route path="/signup" component={signup} />
   <Route path="/bookings" component={Bookingform} />
   <Route path="/checking" component={Check} />
+   <Route path="/status" component={Status} />
 </Switch>
     
   </Router>

@@ -69,7 +69,7 @@ class Bookingform extends Component {
       purposeofevent:this.state.purposeofevent,
       numberofpersons:this.state.numberofpersons,
       fromdate:this.state.fromdate,
-      todate:this.todate,
+      todate:this.state.todate,
       session:this.state.session,
       email:x
 
