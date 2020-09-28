@@ -9,10 +9,11 @@ import './About.css';
 function App(){
     const [books, setBooks] = useState(null);
 
-      const apiURL = "http://localhost:5000/api";
+      //const apiURL = "http://localhost:5000/api";
 
     const fetchData = async () => {
-        const response = await axios.get(apiURL)
+        //const response = await axios.get(apiURL)
+        const response = await axios.post("http://localhost:5000/facreq",{ useremail: localStorage.getItem("email")})
 
         setBooks(response.data) 
     }
