@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import Axios from 'axios';
 import './Login.css'
+import swal from 'sweetalert';
+
+
 const heading ={
     width: '300px',
         border: '1px solid #d6d7da',
@@ -76,11 +79,23 @@ class Login extends Component{
       email: this.state.email,
       password: this.state.password
     });
-      window.alert("Successful Login");
+
+
+        swal({
+          icon: "success",
+          text: "successful login",
+          timer: 1000,
+        });
+      //window.alert("Successful Login");
        localStorage.setItem("email",this.state.email);
       this.props.history.push("/bookings");
     } catch (err) {
-      window.alert(err.response.data);
+                swal({
+        icon: "error",
+         text: err.response.data,
+ 
+            });
+      //window.alert(err.response.data);
     } 
       }
 

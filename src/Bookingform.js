@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import './BookingForm.css';
 import Axios from 'axios';
 import ReactDOM from 'react-dom';
+import swal from 'sweetalert';
+
 
 const hheading ={
     width: '300px',
@@ -75,13 +77,24 @@ class Bookingform extends Component {
 
     });
 
+    swal({
+  icon: "success",
+  text: "successfully request placed",
+  timer: 1000,
+});
 
 
-
-      window.alert("Successfully request sent");
+      //window.alert("Successfully request sent");
       this.props.history.push("/bookings");
     } catch (err) {
-      window.alert(err.response.data);
+     
+     swal({
+  icon: "error",
+  text: err.response.data,
+ 
+});
+
+      //window.alert(err.response.data);
     } 
       }
 
