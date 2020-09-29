@@ -55,7 +55,7 @@ function App(){
       return (
     <div className="App">
 
-      <h1>These are the requests</h1>
+      <h1>Pending Requests</h1>
     
      
     

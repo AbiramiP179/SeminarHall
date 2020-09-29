@@ -28,11 +28,7 @@ function App(){
           return (
     <div className="App">
 
-      <h1>These are the requests you have made</h1>
-        <p> {localStorage.getItem("email")} </p>
-   
-
-     
+      <h1>Your Requests</h1>
       
           <table class="table table-hover table-dark" variant="dark">
        <thead>
